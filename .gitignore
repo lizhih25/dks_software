@@ -10,3 +10,16 @@
 *.lai
 *.la
 *.a
+
+# Vi Temp Files
+*~
+*.swp
+
+# Ultraedit Temp Files
+*.bak
+
+# Qt User Project Setting
+*.pro.user
+
+# Qt Object Folders
+/*-build-*
