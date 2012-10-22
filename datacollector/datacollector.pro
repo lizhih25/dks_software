@@ -12,10 +12,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp\
-../algorithms/rocextractor.cpp
+../algorithms/fovmarker.cpp
 
 HEADERS  += mainwindow.h \
-../algorithms/rocextractor.h
+../algorithms/fovmarker.h
 
 FORMS    += mainwindow.ui
 

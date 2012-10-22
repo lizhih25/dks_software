@@ -55,8 +55,8 @@ void MainWindow::paintEvent(QPaintEvent *)
     if(mShowingCapture.isOpened()) {
         mShowingCapture >> mCapturedMat;
         if (ui->markCheckBox->isChecked()){
-            mRocExtractor.setSrcImage(mCapturedMat);
-            mTempMat = mRocExtractor.getRocImage();
+            mFovMarker.setSrcImage(mCapturedMat);
+            mTempMat = mFovMarker.getMarkedImage();
             cv::cvtColor(mTempMat, mTempMat, CV_BGR2RGB);
         }
         else{

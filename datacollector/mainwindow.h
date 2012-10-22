@@ -1,15 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-/// own algorithms lib
-#include <../algorithms/rocextractor.h>
+// own algorithms lib
+#include <../algorithms/fovmarker.h>
 
-/// opencv lib
+// opencv lib
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-/// Qt lib
+// Qt lib
 #include <QMainWindow>
 #include <QImage>
 #include <QDateTime>
@@ -19,14 +19,14 @@
 #include <QFileDialog>
 
 
-//class naming conventions
-//m for members
-//c for constants/readonlys
-//p for pointer (and pp for pointer to pointer)
-//v for volatile
-//s for static
-//i for indexes and iterators
-//e for events
+// class naming conventions
+// m for members
+// c for constants/readonlys
+// p for pointer (and pp for pointer to pointer)
+// v for volatile
+// s for static
+// i for indexes and iterators
+// e for events
 
 
 namespace Ui {
@@ -67,7 +67,7 @@ private:
     cv::Mat mTempMat;
     cv::VideoWriter mRecordVideo;
 
-    RocExtractor mRocExtractor;
+    FovMarker mFovMarker;
 
     QImage mDisplayImage;
     QString mLastTimeString;
