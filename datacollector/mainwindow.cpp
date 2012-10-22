@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-const QString MainWindow::cImageDir = QString("/image/");
-const QString MainWindow::cVideoDir = QString("/video/");
+const QString MainWindow::scImageDir = QString("/image/");
+const QString MainWindow::scVideoDir = QString("/video/");
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,23 +10,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QShortcut  *m_ALT_c_Accel= new QShortcut(Qt::Key_C, this);
-    connect(m_ALT_c_Accel, SIGNAL(activated()), this, SLOT(change_configure()));
+    QShortcut  *pQShortcut_c= new QShortcut(Qt::Key_C, this);
+    connect(pQShortcut_c, SIGNAL(activated()), this, SLOT(change_configure()));
 
-    QShortcut  *m_ALT_d_Accel= new QShortcut(Qt::Key_D, this);
-    connect(m_ALT_d_Accel, SIGNAL(activated()), this, SLOT(change_rootDir()));
+    QShortcut  *pQShortcut_d= new QShortcut(Qt::Key_D, this);
+    connect(pQShortcut_d, SIGNAL(activated()), this, SLOT(change_rootDir()));
 
-    QShortcut  *m_ALT_0_Accel= new QShortcut(Qt::Key_0, this);
-    connect(m_ALT_0_Accel, SIGNAL(activated()), this, SLOT(change_camera_0()));
-    QShortcut  *m_ALT_1_Accel= new QShortcut(Qt::Key_1, this);
-    connect(m_ALT_1_Accel, SIGNAL(activated()), this, SLOT(change_camera_1()));
-    QShortcut  *m_ALT_2_Accel= new QShortcut(Qt::Key_2, this);
-    connect(m_ALT_2_Accel, SIGNAL(activated()), this, SLOT(change_camera_2()));
+    QShortcut  *pQShortcut_0= new QShortcut(Qt::Key_0, this);
+    connect(pQShortcut_0, SIGNAL(activated()), this, SLOT(change_camera_0()));
+    QShortcut  *pShortcut_1= new QShortcut(Qt::Key_1, this);
+    connect(pShortcut_1, SIGNAL(activated()), this, SLOT(change_camera_1()));
+    QShortcut  *pShortcut_2= new QShortcut(Qt::Key_2, this);
+    connect(pShortcut_2, SIGNAL(activated()), this, SLOT(change_camera_2()));
 
-    QShortcut  *m_ALT_enter_Accel= new QShortcut(Qt::Key_Return, this);
-    connect(m_ALT_enter_Accel, SIGNAL(activated()), this, SLOT(on_imagebutton_clicked()));
-    QShortcut  *m_ALT_space_Accel= new QShortcut(Qt::Key_Space, this);
-    connect(m_ALT_space_Accel, SIGNAL(activated()), this, SLOT(on_videobutton_clicked()));
+    QShortcut  *pShortcut_return= new QShortcut(Qt::Key_Return, this);
+    connect(pShortcut_return, SIGNAL(activated()), this, SLOT(on_imagebutton_clicked()));
+    QShortcut  *pShortcut_space= new QShortcut(Qt::Key_Space, this);
+    connect(pShortcut_space, SIGNAL(activated()), this, SLOT(on_videobutton_clicked()));
 
 
     mConfigFileName = QString("config.xml");
@@ -69,7 +69,7 @@ void MainWindow::paintEvent(QPaintEvent *)
         ui->labelVideo->setPixmap(QPixmap::fromImage(mDisplayImage));
         if(ui->videobutton->isEnabled());
         else {
-            if (miVideoFrame < cRecordFps*cReordTimeLength){
+            if (miVideoFrame < scRecordFps*scReordTimeLength){
                 mRecordVideo << mCapturedMat;
                 miVideoFrame++;
             }
@@ -85,7 +85,7 @@ void MainWindow::paintEvent(QPaintEvent *)
 void MainWindow::on_imagebutton_clicked()
 {
     /// 判断目录是否存在，不存在便新建
-    QString saveDir(ui->userNameLineEdit->text() + cImageDir + mUserHand);
+    QString saveDir(ui->userNameLineEdit->text() + scImageDir + mUserHand);
     qDebug() << saveDir;
     if(mRootSaveDir.exists(saveDir) == false) mRootSaveDir.mkpath(saveDir);
 
@@ -106,7 +106,7 @@ void MainWindow::on_videobutton_clicked()
 {
     if (ui->videobutton->isEnabled()==false) return;
     /// 判断目录是否存在，不存在便新建
-    QString saveDir(ui->userNameLineEdit->text() + cVideoDir + mUserHand);
+    QString saveDir(ui->userNameLineEdit->text() + scVideoDir + mUserHand);
     qDebug() << saveDir;
     if(mRootSaveDir.exists(saveDir) == false) mRootSaveDir.mkpath(saveDir);
 
@@ -114,7 +114,7 @@ void MainWindow::on_videobutton_clicked()
     QString mVideoName=mRootSaveDir.path()+"/"+saveDir+"/"+mTimeString+".avi";
     int fcc=CV_FOURCC('M','J','P','G');
     bool isColor = true;
-    mRecordVideo.open(mVideoName.toAscii().data(), fcc, cRecordFps, mCapturedMat.size(), isColor);
+    mRecordVideo.open(mVideoName.toAscii().data(), fcc, scRecordFps, mCapturedMat.size(), isColor);
 
     ui->videobutton->setDisabled(true);
 }

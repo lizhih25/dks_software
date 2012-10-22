@@ -18,6 +18,17 @@
 #include <QShortcut>
 #include <QFileDialog>
 
+
+//class naming conventions
+//m for members
+//c for constants/readonlys
+//p for pointer (and pp for pointer to pointer)
+//v for volatile
+//s for static
+//i for indexes and iterators
+//e for events
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -46,10 +57,10 @@ private slots:
     void on_userHandComboBox_currentIndexChanged(int index);
 
 private:
+    Ui::MainWindow *ui;
+
     int miImage;
     int miVideoFrame;
-
-    Ui::MainWindow *ui;
 
     cv::VideoCapture mShowingCapture;
     cv::Mat mCapturedMat;
@@ -62,14 +73,14 @@ private:
     QString mLastTimeString;
 
     QDir mRootSaveDir;
-    static const QString cImageDir;
-    static const QString cVideoDir;
+    static const QString scImageDir;
+    static const QString scVideoDir;
     QString mUserHand;
 
     QString mConfigFileName;
 
-    static const int cReordTimeLength = 5;
-    static const int cRecordFps = 20;
+    static const int scReordTimeLength = 5;
+    static const int scRecordFps = 20;
 
     void loadConfigure(QString configureFileName);
 };
