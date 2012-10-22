@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>809</width>
-    <height>510</height>
+    <width>865</width>
+    <height>526</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -190,7 +190,7 @@
         </property>
        </spacer>
       </item>
-      <item row="8" column="0" colspan="4">
+      <item row="11" column="0" colspan="4">
        <widget class="QCheckBox" name="markCheckBox">
         <property name="text">
          <string>Mark</string>
@@ -223,6 +223,20 @@
         </property>
        </spacer>
       </item>
+      <item row="9" column="0" colspan="4">
+       <widget class="QLabel" name="labelImageCount">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0" colspan="4">
+       <widget class="QLabel" name="labelVideoCount">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="2" column="0">
@@ -248,7 +262,7 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
+        <width>10</width>
         <height>10</height>
        </size>
       </property>

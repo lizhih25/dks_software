@@ -77,6 +77,10 @@ void MainWindow::paintEvent(QPaintEvent *)
                 mRecordVideo << mCapturedMat;
                 ui->videobutton->setEnabled(true);
                 miVideoFrame=0;
+                QString videoName("*.avi");
+                QStringList files = mVideoDir.entryList(QStringList(videoName),
+                                             QDir::Files | QDir::NoSymLinks);
+                ui->labelVideoCount->setText(QString(tr("%2 videos saved")).arg(files.length()));
             }
         }
     }
@@ -100,6 +104,12 @@ void MainWindow::on_imagebutton_clicked()
     QString countstr=QString::number(miImage,10);
     QString mImageName = mRootSaveDir.path()+"/"+saveDir+ "/"+mTimeString+countstr+".png";
     cv::imwrite(mImageName.toAscii().data(), mCapturedMat);
+
+    QDir imageDir(mRootSaveDir.path()+"/"+saveDir);
+    QString imageName("*.png");
+    QStringList files = imageDir.entryList(QStringList(imageName),
+                                 QDir::Files | QDir::NoSymLinks);
+    ui->labelImageCount->setText(QString(tr("%2 images saved")).arg(files.length()));
 }
 
 void MainWindow::on_videobutton_clicked()
@@ -117,6 +127,7 @@ void MainWindow::on_videobutton_clicked()
     mRecordVideo.open(mVideoName.toAscii().data(), fcc, scRecordFps, mCapturedMat.size(), isColor);
 
     ui->videobutton->setDisabled(true);
+    this->mVideoDir = QDir(mRootSaveDir.path()+"/"+saveDir);
 }
 
 void MainWindow::change_camera(int camid)

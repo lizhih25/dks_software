@@ -76,6 +76,7 @@ private:
     static const QString scImageDir;
     static const QString scVideoDir;
     QString mUserHand;
+    QDir mVideoDir;
 
     QString mConfigFileName;
 
