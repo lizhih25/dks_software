@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>user name:</string>
+     <string>Name:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="userNameLineEdit">
@@ -69,7 +69,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>user hand:</string>
+     <string>Hand:</string>
     </property>
    </widget>
    <widget class="QComboBox" name="userHandComboBox">
@@ -83,12 +83,12 @@
     </property>
     <item>
      <property name="text">
-      <string>l</string>
+      <string>Left Hand</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>r</string>
+      <string>Right Hand</string>
      </property>
     </item>
    </widget>

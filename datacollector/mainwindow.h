@@ -16,6 +16,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QShortcut>
+#include <QFileDialog>
 
 namespace Ui {
 class MainWindow;
@@ -26,8 +27,6 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    int imagecount;
-    int videocount;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void paintEvent(QPaintEvent *);
@@ -41,23 +40,38 @@ private slots:
     void change_camera_0();
     void change_camera_1();
     void change_camera_2();
+    void change_configure();
+    void change_rootDir();
+
+    void on_userHandComboBox_currentIndexChanged(int index);
 
 private:
+    int miImage;
+    int miVideoFrame;
+
     Ui::MainWindow *ui;
 
-    cv::VideoCapture showingCapture;
-    cv::Mat capturedMat;
-    cv::Mat tempMat;
-    cv::VideoWriter recordVideo;
+    cv::VideoCapture mShowingCapture;
+    cv::Mat mCapturedMat;
+    cv::Mat mTempMat;
+    cv::VideoWriter mRecordVideo;
 
-    RocExtractor rocExtractor;
+    RocExtractor mRocExtractor;
 
-    QImage displayImage;
-    QString lasttime;
-    QString picname;
+    QImage mDisplayImage;
+    QString mLastTimeString;
 
-    const static int TIME = 5;
-    const static int FPS = 20;
+    QDir mRootSaveDir;
+    static const QString cImageDir;
+    static const QString cVideoDir;
+    QString mUserHand;
+
+    QString mConfigFileName;
+
+    static const int cReordTimeLength = 5;
+    static const int cRecordFps = 20;
+
+    void loadConfigure(QString configureFileName);
 };
 
 #endif // MAINWINDOW_H

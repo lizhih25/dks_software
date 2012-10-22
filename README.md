@@ -12,12 +12,7 @@ DKS Demo Software
       │  │  └─lib
       │  ├─qt481
       │  │  └─bin
-      │  └─tbb41
-      │      ├─bin
-      │      ├─include
-      │      └─lib
-      ├─sampling
-      ├─roc
+      ├─datacollector
       └─test
 
 ## Dependencies
@@ -26,5 +21,18 @@ DKS Demo Software
 
 #### OpenCV 2.4.2 vc10 x86 with support to Qt 4.8.1
 
-#### TBB 4.1 ia32 vc10
+## datacollector
+
+### Functions
+
++ Collect images and videos
+
+### New Shortcuts
+
++ Shortcut 'c': change the config file
++ Shortcut 'd': change the root dir
++ Shortcut '0','1','2': change the camera to 0,1,2
++ Shortcut Enter: take a picture
++ Shortcut Space: take a video
+
 

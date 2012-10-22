@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = dks
+TARGET = datacollector
 TEMPLATE = app
 
 
