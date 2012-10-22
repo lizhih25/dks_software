@@ -88,7 +88,7 @@ void MainWindow::paintEvent(QPaintEvent *)
 
 void MainWindow::on_imagebutton_clicked()
 {
-    /// 判断目录是否存在，不存在便新建
+    /// prepare Dir for save
     QString saveDir(ui->userNameLineEdit->text() + scImageDir + mUserHand);
     qDebug() << saveDir;
     if(mRootSaveDir.exists(saveDir) == false) mRootSaveDir.mkpath(saveDir);
@@ -115,7 +115,7 @@ void MainWindow::on_imagebutton_clicked()
 void MainWindow::on_videobutton_clicked()
 {
     if (ui->videobutton->isEnabled()==false) return;
-    /// 判断目录是否存在，不存在便新建
+    /// prepare Dir for save
     QString saveDir(ui->userNameLineEdit->text() + scVideoDir + mUserHand);
     qDebug() << saveDir;
     if(mRootSaveDir.exists(saveDir) == false) mRootSaveDir.mkpath(saveDir);
