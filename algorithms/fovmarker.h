@@ -1,17 +1,25 @@
+/////////////////////////////////////////////////////////
+/// \brief Mark the fov of the door knob system
+///
+/// The Field of View(FOV) means the ring area, especially
+/// the referenc rectangle area between the two pegs. Mark
+/// these areas to calibrate the device and make sure the
+/// image quality is good enough.
+///
+/////////////////////////////////////////////////////////
+
 #ifndef FOVMARKER_H
 #define FOVMARKER_H
 
-#include <QObject>
+// own algorithms lib
+
+// opencv lib
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-/////////////////////////////////////////////////////////
-/// \brief Mark the fov of the door knob system
-///
-/// Mark the filed of view of the door knob system
-///
-/////////////////////////////////////////////////////////
+// Qt lib
+#include <QObject>
 
 /// Draw markers on the image
 class FovMarker : public QObject
@@ -36,7 +44,7 @@ private:
     cv::Mat srcImage;
     cv::Mat markedImage;
 
-    bool isDebuging;///< whether generating debug info
+    bool isDebuging;
 
     ///< draw the field of view including two circles and the center
     cv::Mat drawFov(cv::Mat& im);

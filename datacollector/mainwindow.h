@@ -3,6 +3,8 @@
 
 // own algorithms lib
 #include <../algorithms/fovmarker.h>
+#include <../algorithms/configure.h>
+#include <../algorithms/anyoption.h>
 
 // opencv lib
 #include <opencv2/core/core.hpp>
@@ -41,6 +43,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void paintEvent(QPaintEvent *);
+    void optionAndConfigParse(int argc, char* argv[]);
 
 private slots:
     void on_imagebutton_clicked();
@@ -59,6 +62,12 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    Configure cfg;
+    static const QString scImageDir;
+    static const QString scVideoDir;
+    QString mUserHand;
+    QDir mVideoDir;
+
     int miImage;
     int miVideoFrame;
 
@@ -72,18 +81,9 @@ private:
     QImage mDisplayImage;
     QString mLastTimeString;
 
-    QDir mRootSaveDir;
-    static const QString scImageDir;
-    static const QString scVideoDir;
-    QString mUserHand;
-    QDir mVideoDir;
-
-    QString mConfigFileName;
-
     static const int scReordTimeLength = 5;
     static const int scRecordFps = 20;
 
-    void loadConfigure(QString configureFileName);
 };
 
 #endif // MAINWINDOW_H

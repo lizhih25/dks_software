@@ -12,10 +12,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp\
-../algorithms/fovmarker.cpp
+../algorithms/fovmarker.cpp \
+    ../algorithms/configure.cpp \
+    ../algorithms/anyoption.cpp
 
 HEADERS  += mainwindow.h \
-../algorithms/fovmarker.h
+../algorithms/fovmarker.h \
+    ../algorithms/configure.h \
+    ../algorithms/anyoption.h
 
 FORMS    += mainwindow.ui
 

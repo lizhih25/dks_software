@@ -3,7 +3,7 @@
 FovMarker::FovMarker(QObject *parent) :
     QObject(parent)
 {
-    isDebuging = true;
+    isDebuging = false;
     center = cv::Point2d(0.46875f,0.477f);
     innerRadius = 0.1421875f;
     outerRadius = 0.3828125f;

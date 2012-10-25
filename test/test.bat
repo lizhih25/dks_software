@@ -6,7 +6,7 @@ set "RELEASEEXE=%EXEDIR%\release\%EXEFILE%"
 set "DEBUGEXE=%EXEDIR%\debug\%EXEFILE%"
 
 if not exist %RELEASEEXE% goto NoRelease
-start %RELEASEEXE%
+      start %RELEASEEXE% -0c configtest.xml
 :NoRelease
 
 if not exist %DEBUGEXE% goto NoDebug
