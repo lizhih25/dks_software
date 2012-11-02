@@ -12,6 +12,7 @@ bool Demo::loadDataSet()
 
 bool Demo::saveUser(User currentUser)
 {
+    return true;
 }
 
 bool Demo::enroll()
@@ -21,7 +22,7 @@ bool Demo::enroll()
     user.roi = roi_extractor.extractRoiFromImage(this->mTestMat, "kmeans");
     user.feature = feature_extractor.extractFeatureFromRoi(user.roi,"geometry");
     saveUser(user);
-    this->userList.append(&user);
+    this->userList.append(user);
     return true;
 }
 
@@ -53,4 +54,10 @@ bool Demo::verify(cv::Mat inputMat, QString name)
     this->mTestMat = inputMat;
     this->mTestName = name;
     return verify();
+}
+
+bool Demo::setDataSet(QDir dataSetDir)
+{
+    this->mDataSetDir = dataSetDir;
+    return true;
 }

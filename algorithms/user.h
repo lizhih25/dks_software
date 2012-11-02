@@ -7,22 +7,16 @@
 #include <opencv2/core/core.hpp>
 
 // Qt lib
-#include <QObject>
 #include <QString>
 
-class User : public QObject
+class User
 {
-    Q_OBJECT
 public:
-    explicit User(QObject *parent = 0);
+    User();
     cv::Mat image;
     QString name;
     cv::Mat roi;
     cv::Mat feature;
-
-signals:
-
-public slots:
 
 };
 

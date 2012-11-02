@@ -47,7 +47,7 @@ private:
     FeatureExtractor feature_extractor;
 
     QDir mDataSetDir;
-    QList<User*> userList;
+    QList<User> userList;
 
     bool loadDataSet();
 
