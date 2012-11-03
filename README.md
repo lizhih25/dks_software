@@ -5,15 +5,18 @@ DKS Demo Software
 
 ## Structure
 
-      ├─libs
-      │  ├─opencv242
-      │  │  ├─bin
-      │  │  ├─include
-      │  │  └─lib
-      │  ├─qt481
-      │  │  └─bin
-      ├─datacollector
-      └─test
+    ├─algorithms
+    ├─datacollector
+    ├─demo
+    ├─doc
+    ├─libs
+    │  ├─opencv242
+    │  │  ├─bin
+    │  │  ├─include
+    │  │  └─lib
+    │  └─qt481
+    │      └─bin
+    └─test
 
 ## Dependencies
 
